@@ -1,0 +1,27 @@
+{
+  "name": "vite-plugin-uhuu",
+  "version": "1.0.0",
+  "description": "Vite plugin to zip template package after build.",
+  "main": "plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uhuuio/vite-plugin-uhuu.git"
+  },
+  "keywords": [
+    "uhuu",
+    "vite",
+    "plugin"
+  ],
+  "author": "uhuuio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uhuuio/vite-plugin-uhuu/issues"
+  },
+  "homepage": "https://github.com/uhuuio/vite-plugin-uhuu#readme",
+  "dependencies": {
+    "jszip": "^3.10.0"
+  }
+}
