@@ -46,9 +46,12 @@ const plugin = function(){
         apply: 'build',
         closeBundle(){
             const path = require('path')
+            const fs = require('fs')
             const realPath = path.resolve(__dirname,'../../dist')
             const name = 'uhuu.zip'
-            makeZip(realPath,name)
+            if (fs.existsSync(realPath)) {
+                makeZip(realPath,name)
+            }
         }
     }
 }
