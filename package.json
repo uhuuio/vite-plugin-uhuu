@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-uhuu",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Vite plugin to zip template package after build.",
   "main": "plugin.js",
   "scripts": {

@@ -44,16 +44,22 @@ const plugin = function() {
         zipDir(distPath);
     };
 
+    let outputDir = 'dist';  // default output folder for each package
+
     return {
         name: 'vite-plugin-uhuu',
         apply(config, { command, mode }) {
-            // Apply the plugin for all build commands with "build" in the mode
-            return command === 'build' || mode?.includes('build');
+            return command === 'build' || mode.includes('build');
+        },
+        configResolved(resolvedConfig) {            
+            // Get the output directory for each package in the monorepo
+            outputDir = (resolvedConfig?.envDir ? resolvedConfig?.envDir + '/' : '') + (resolvedConfig.build.outDir || 'dist');            
         },
         closeBundle() {
             const path = require('path');
             const fs = require('fs');
-            const realPath = path.resolve(__dirname, '../../dist');
+            const realPath = path.resolve(__dirname, outputDir);  // resolved for each package's outDir
+            
             const name = 'uhuu.zip';
             if (fs.existsSync(realPath)) {
                 makeZip(realPath, name);
